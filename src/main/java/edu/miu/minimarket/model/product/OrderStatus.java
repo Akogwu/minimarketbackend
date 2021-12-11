@@ -7,18 +7,18 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class OrderList {
+@Entity
+
+@Table(name = "Order_Status")
+public class OrderStatus {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private Long productId;
-    private Long orderId;
-
+    private long id;
+    @Column(name = "status_name")
+    private String statusName;
 }

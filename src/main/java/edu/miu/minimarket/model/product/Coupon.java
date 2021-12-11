@@ -1,4 +1,4 @@
-package edu.miu.minimarket.model.user;
+package edu.miu.minimarket.model.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,19 +14,20 @@ import javax.persistence.*;
 @Setter
 @Entity
 
-@Table(name = "ADMIN")
-public class Admin {
+@Table(name = "Coupon")
+public class Coupon {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "firstname")
-    private String firstName;
-    @Column(name = "lastname")
-    private String lastName;
-    private String email;
-    private String username;
-    private String password;
+    private String coupon;
+    private double amount;
+    private LocalDate date;
+    @Column(name = "use_status")
+    private boolean useStatus;
+
+    @Column(name = "order_id")
+    private long orderId;
 
 }

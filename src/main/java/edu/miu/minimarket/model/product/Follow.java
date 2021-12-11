@@ -1,4 +1,4 @@
-package edu.miu.minimarket.model.user;
+package edu.miu.minimarket.model.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,17 +7,22 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Role {
+@Entity
+
+@Table(name = "Follow")
+public class Follow {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
-    private String name;
+    @Column(name = "buyer_id")
+    private long buyerId;
+    @Column(name = "seller_id")
+    private long sellerId;
 
 }

@@ -1,24 +1,33 @@
 package edu.miu.minimarket.model.user;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import edu.miu.minimarket.model.product.Product;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import java.util.List;
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
 
-public class Seller extends User {
-    //private String shop;
-    private String description;
-    private Address address;
+@Table(name = "SELLER")
+public class Seller {
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "seller")
-    @Fetch(FetchMode.JOIN)
-    @JsonManagedReference
-    private List<Product> products;
+    @Column(name = "firstname")
+    private String firstName;
+    @Column(name = "lastname")
+    private String lastName;
+    private String email;
+    private String username;
+    private String password;
 
+    @Column(name = "approval_status")
+    private boolean approvalStatus;
 
 }
