@@ -1,12 +1,16 @@
 package edu.miu.minimarket.model.product;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import edu.miu.minimarket.model.user.Seller;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,7 +30,16 @@ public class Product {
     private int quantity;
     private double price;
 
-    @Column(name = "seller_id")
-    private long sellerId;
+
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
+    @JsonBackReference
+    private Seller seller;
+
+    @OneToMany
+    private List<Review> reviews;
+
+
+
 
 }

@@ -27,7 +27,10 @@ public class Coupon {
     @Column(name = "use_status")
     private boolean useStatus;
 
-    @Column(name = "order_id")
-    private long orderId;
+    @OneToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
+
+
 
 }

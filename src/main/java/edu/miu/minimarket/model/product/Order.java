@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -52,15 +55,14 @@ public class Order {
     private String paymentStatus;
 
 
-    @Column(name = "buyer_id")
-    private long buyerId;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
+    private List<Product> products;
 
-    @Column(name = "order_status_id")
-    private long orderStatusId;
+    @OneToOne(mappedBy = "order")
+    private OrderStatus order_status;
 
-    @Column(name = "coupon_id")
-    private long couponId;
-
-
+    @OneToOne
+    private Coupon coupon;
 
 }

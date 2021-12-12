@@ -1,5 +1,6 @@
 package edu.miu.minimarket.model.product;
 
+import edu.miu.minimarket.model.user.Buyer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,9 +28,15 @@ public class Review {
     @Column(name = "approval_status")
     private boolean approvalStatus;
 
-    @Column(name = "buyer_id")
-    private long buyerId;
-    @Column(name = "product_id")
-    private long productId;
+
+    @ManyToOne
+    @JoinColumn(name = "buyer_id")
+    private Buyer buyer;
+
+
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
 }

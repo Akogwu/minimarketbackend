@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,4 +22,8 @@ public class OrderStatus {
     private long id;
     @Column(name = "status_name")
     private String statusName;
+
+    @OneToOne(mappedBy = "order_status")
+    @JoinColumn(name = "order_status_id")
+    private Order order;
 }

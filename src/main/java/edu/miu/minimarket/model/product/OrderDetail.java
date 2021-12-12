@@ -4,8 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,9 +28,15 @@ public class OrderDetail {
     private int quantity;
     private double price;
 
-    @Column(name = "order_id")
-    private long orderId;
-    @Column(name = "product_id")
-    private long productId;
+
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
+    private List<Order> orders;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
+    private List<Product> products;
+
 
 }

@@ -1,5 +1,6 @@
 package edu.miu.minimarket.model.product;
 
+import edu.miu.minimarket.model.user.Seller;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,9 @@ public class Follow {
 
     @Column(name = "buyer_id")
     private long buyerId;
-    @Column(name = "seller_id")
-    private long sellerId;
+
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
+    private Seller seller;
 
 }
