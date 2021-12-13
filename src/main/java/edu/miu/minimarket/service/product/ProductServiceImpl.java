@@ -1,4 +1,4 @@
 package edu.miu.minimarket.service.product;
 
-public class ProductServiceImpl {
+public class ProductServiceImpl implements ProductService {
 }
