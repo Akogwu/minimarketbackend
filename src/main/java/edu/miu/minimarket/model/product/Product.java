@@ -30,7 +30,6 @@ public class Product {
     private int quantity;
     private double price;
 
-
     @ManyToOne
     @JoinColumn(name = "seller_id")
     @JsonBackReference
@@ -38,8 +37,5 @@ public class Product {
 
     @OneToMany
     private List<Review> reviews;
-
-
-
 
 }

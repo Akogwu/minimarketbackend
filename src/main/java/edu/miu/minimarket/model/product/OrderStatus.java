@@ -21,9 +21,10 @@ public class OrderStatus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "status_name")
-    private String statusName;
+    private String statusname;
 
     @OneToOne(mappedBy = "order_status")
     @JoinColumn(name = "order_status_id")
     private Order order;
+
 }

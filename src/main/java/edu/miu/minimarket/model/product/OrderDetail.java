@@ -21,22 +21,21 @@ public class OrderDetail {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "product_name")
-    private String productName;
+    private String productname;
     private int quantity;
     private double price;
+    private long order_id;
+    private long product_id;
 
-
-
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @Fetch(FetchMode.JOIN)
-    private List<Order> orders;
-
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @Fetch(FetchMode.JOIN)
-    private List<Product> products;
-
+//    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+//    @Fetch(FetchMode.JOIN)
+//    private List<Order> orders;
+//
+//    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+//    @Fetch(FetchMode.JOIN)
+//    private List<Product> products;
 
 }

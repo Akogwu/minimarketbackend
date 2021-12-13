@@ -30,30 +30,32 @@ public class Order {
     private LocalDate date;
 
     @Column(name = "shipper_name")
-    private String shipperName;
+    private String shippername;
     @Column(name = "shipper_apt")
-    private String shipperApt;
+    private String shipperapt;
     @Column(name = "shipper_city")
-    private String shipperCity;
+    private String shippercity;
     @Column(name = "shipper_state")
-    private String shipperState;
+    private String shipperstate;
     @Column(name = "shipper_country")
-    private String shipperCountry;
+    private String shippercountry;
     @Column(name = "billing_name")
-    private String billingName;
+    private String billingname;
     @Column(name = "billing_apt")
-    private String billingApt;
+    private String billingapt;
     @Column(name = "billing_city")
-    private String billingCity;
+    private String billingcity;
     @Column(name = "billing_state")
-    private String billingState;
+    private String billingstate;
     @Column(name = "billing_country")
-    private String billingCountry;
+    private String billingcountry;
     @Column(name = "payment_type")
-    private String paymentType;
+    private String paymenttype;
     @Column(name = "payment_status")
-    private String paymentStatus;
+    private String paymentstatus;
 
+    @Column(name = "buyer_id")
+    private long buyer_id;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @Fetch(FetchMode.JOIN)

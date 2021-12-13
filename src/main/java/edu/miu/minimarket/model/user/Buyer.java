@@ -22,17 +22,18 @@ public class Buyer {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "firstname")
     private String firstName;
     @Column(name = "lastname")
     private String lastName;
-    String email;
-    String username;
-    String password;
+    private String email;
+    private String username;
+    private String password;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Fetch(FetchMode.JOIN)
     private List<Review> reviews;
+
 }

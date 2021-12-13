@@ -1,6 +1,5 @@
 package edu.miu.minimarket.model.product;
 
-import edu.miu.minimarket.model.user.Seller;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,13 +18,11 @@ public class Follow {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "buyer_id")
-    private long buyerId;
-
-    @ManyToOne
-    @JoinColumn(name = "seller_id")
-    private Seller seller;
+    private long buyerid;
+    @Column(name = "seller_id")
+    private long sellerid;
 
 }

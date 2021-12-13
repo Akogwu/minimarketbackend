@@ -25,7 +25,7 @@ public class Coupon {
     private double amount;
     private LocalDate date;
     @Column(name = "use_status")
-    private boolean useStatus;
+    private boolean usestatus;
 
     @OneToOne
     @JoinColumn(name = "order_id")

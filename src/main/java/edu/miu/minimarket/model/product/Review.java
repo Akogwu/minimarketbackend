@@ -28,15 +28,20 @@ public class Review {
     @Column(name = "approval_status")
     private boolean approvalStatus;
 
-
     @ManyToOne
     @JoinColumn(name = "buyer_id")
     private Buyer buyer;
 
-
-
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    public boolean getApprovalStatus () {
+        if (approvalStatus == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
